@@ -1,15 +1,14 @@
-#시험 감독
-n = int(input())
-a = list(map(int, input().split()))
-b,c = map(int, input().split())
+N = int(input())
+people = list(map(int, input().split()))
+B, C = map(int, input().split())
 result = 0
+for person in people:
+    person -= B
+    result += 1
+    if person > 0:
+        result += person // C
+        person = person % C
+        if person != 0:
+            result += 1
 
-for i in a:
-	i -= b
-	cnt = 1
-	if i > 0:
-		cnt += i //c
-		if i % c != 0:
-			cnt += 1
-	result += cnt
 print(result)
